@@ -1,5 +1,5 @@
 let accessToken ;
-const cliendId = '8faf514276b94ec0bccaad79b0a9a6d0'
+const cliendId = '6bf6e56717df42e4a2b1f44f9354d95e'
 const redirectUri = 'http://localhost:3000/jammming'
 const Spotify = {
     getAccessToken(){
@@ -49,8 +49,8 @@ const Spotify = {
         const accessToken = Spotify.getAccessToken()
         const headers = {Authorization: `Bearer ${accessToken}`}
         let userId;
-        return fetch('https://api.spotify.com/v1/me', {headers: headers}
-        ).then(response=> response.json()
+        return fetch('https://api.spotify.com/v1/me', 
+        {headers: headers}).then(response=> response.json()
         ).then(jsonResponse => {
             userId = jsonResponse.id
             return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
@@ -63,9 +63,7 @@ const Spotify = {
                 return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
                     headers: headers,
                     method: 'POST',
-                    body:JSON.stringify({
-                        uris: trackUris
-                    })
+                    body:JSON.stringify({uris: trackUris})
                 })
             })
         })
