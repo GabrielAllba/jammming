@@ -1,6 +1,6 @@
 let accessToken ;
 const cliendId = '6bf6e56717df42e4a2b1f44f9354d95e'
-const redirectUri = 'http://absorbing-answer.surge.sh'
+const redirectUri = 'https://gracious-johnson-d57aa0.netlify.app/'
 const Spotify = {
     getAccessToken(){
         if(accessToken){
